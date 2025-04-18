@@ -3,7 +3,7 @@
 # Roadmap to Becoming a Systems / Kernel / Low-Level Developer
 
 ## Stage 0: Mindset
-- [V] Accept that you're going to learn what 99% of devs never touch
+- [ ] Accept that you're going to learn what 99% of devs never touch
 - [ ] Be ready to dive into C, Assembly, OS internals, and hardware-level thinking
 
 ## Stage 1: Master C & Systems Thinking

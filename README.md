@@ -3,9 +3,9 @@
 ---
 
 ## Pre‑Stage: Prerequisites & Environment
-- [ ] Set up a Linux distro (Ubuntu, Fedora, Arch) as primary or VM
-- [ ] Learn basic shell (`bash`/`zsh`): navigation, pipes, redirection, scripting
-- [ ] Master Git: cloning, branching, commits, rebasing, patch workflows
+- [x] Set up a Linux distro (Ubuntu, Fedora, Arch) as primary or VM
+- [x] Learn basic shell (`bash`/`zsh`): navigation, pipes, redirection, scripting
+- [x] Master Git: cloning, branching, commits, rebasing, patch workflows
 - [ ] Install core toolchain: `gcc`/`clang`, `make`/`ninja`, `gdb`, `qemu`, `bochs`
 ### Extra Books
 - [ ] *The Linux Command Line* by William Shotts
@@ -17,16 +17,9 @@
 ---
 
 ## Stage 0: Mindset
-- [ ] Accept that you're going to learn what 99% of devs never touch
-- [ ] Embrace patience: low‑level bugs can take days to root‑cause
-- [ ] Adopt a systems‑thinking approach: hardware ↔ software interplay
-### Extra Reads
-- [ ] *The Practice of Programming* by Kernighan & Pike
-- [ ] *Debugging* by David Agans
-### Extra Exercises
-- [ ] Review difficult bugs in your journal and write post-mortem notes
-- [ ] Pair-program a challenging debugging session with a peer
-
+- [x] Accept that you're going to learn what 99% of devs never touch
+- [x] Embrace patience: low‑level bugs can take days to root‑cause
+- [x] Adopt a systems‑thinking approach: hardware ↔ software interplay
 ---
 
 ## Stage 1: Linux & Toolchain Fluency

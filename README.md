@@ -1,6 +1,5 @@
 # The Ultimate Roadmap to Becoming a Systems / Kernel / Low-Level Developer
 
----
 
 ## Pre‑Stage: Prerequisites & Environment
 - [x] Set up a Linux distro (Ubuntu, Fedora, Arch) as primary or VM

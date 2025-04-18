@@ -1,102 +1,173 @@
-# Computer-Architecture
+# Computer Architecture
 
-# Roadmap to Becoming a Systems / Kernel / Low-Level Developer
+# The Ultimate Roadmap to Becoming a Systems / Kernel / Low-Level Developer
+
+## Pre‑Stage: Prerequisites & Environment
+- [x] Set up a Linux distro (Ubuntu, Fedora, Arch) as primary or VM
+- [x] Learn basic shell (`bash`/`zsh`): navigation, pipes, redirection, scripting
+- [x] Master Git: cloning, branching, commits, rebasing, patch workflows
+- [ ] Install core toolchain: `gcc`/`clang`, `make`/`ninja`, `gdb`, `qemu`, `bochs`
 
 ## Stage 0: Mindset
-- [ ] Accept that you're going to learn what 99% of devs never touch
-- [ ] Be ready to dive into C, Assembly, OS internals, and hardware-level thinking
+- [x] Embrace patience: low‑level bugs can take days to root‑cause
+- [ ] Adopt a systems‑thinking approach: hardware ↔ software interplay
+- [x] Accept that you're going to learn what 99% of devs never touch
 
-## Stage 1: Master C & Systems Thinking
+## Stage 1: Linux & Toolchain Fluency
+### Topics
+- [ ] Filesystem layout (`/proc`, `/sys`, `/dev`)
+- [ ] Package management (`apt`, `dnf`, `pacman`)
+- [ ] Permissions, users/groups, capabilities
+- [ ] Building from source: `./configure && make && make install`
+- [ ] CI basics: setting up Travis/Circle/GitHub Actions for C projects
+
+### Mini‑Projects
+- [ ] Write a Bash script to automate compiling and testing a C program
+- [ ] Containerize a “Hello, world” web server with Docker
+
+## Stage 2: Master C & Systems Thinking
 ### Books
-- [ ] The C Programming Language (K&R)
-- [ ] Computer Systems: A Programmer’s Perspective
-- [ ] Learn C The Hard Way
+- [ ] **The C Programming Language** (K&R)
+- [ ] **Computer Systems: A Programmer’s Perspective**
+- [ ] **Learn C The Hard Way**
+- [ ] *Optional:* Expert C Programming: Deep C Secrets
 
 ### Projects
-- [ ] Implement `strlen`, `strcpy`, `malloc`
-- [ ] Build your own shell using `fork()`, `exec()`, `wait()`
-- [ ] Recreate utilities like `cat`, `ls`, `ps`
-- [ ] Write a custom memory allocator using `sbrk()`
+- [ ] Reimplement `strlen`, `strcpy`, `malloc`
+- [ ] Build a shell with `fork()`, `exec()`, `wait()`
+- [ ] Clone `cat`, `ls`, `ps` from scratch
+- [ ] Static analysis: run `clang‑tidy`, `cppcheck` on your code
 
-## Stage 2: Assembly + CPU Basics
+## Stage 3: Assembly & CPU Architecture
 ### Resources
-- [ ] PC Assembly Language by Paul Carter
-- [ ] godbolt.org — compile C, view assembly
-- [ ] `objdump`, `gdb`, `readelf` practice
+- [ ] **PC Assembly Language** by Paul Carter
+- [ ] godbolt.org (compile C ↔ view asm)
+- [ ] Intel/AMD manuals (optional deep dive)
 
-### Concepts
-- [ ] Registers: `rax`, `rsp`, `rbp`, etc.
-- [ ] Stack frames and function calls
-- [ ] Key instructions: `mov`, `call`, `ret`, `jmp`, etc.
-- [ ] How C maps to instructions
+### Concepts & Tools
+- [ ] Registers: `rax`, `rbp`, `rsp`, …
+- [ ] Stack frames, calling conventions (SysV, MS)
+- [ ] Instructions: `mov`, `call`, `ret`, `jmp`, `cmp`, `je/jne`
+- [ ] Tools: `objdump`, `readelf`, `gdb`, `strace`
 
-## Stage 3: OS & Kernel Internals
+### Exercises
+- [ ] Write simple functions in NASM; call them from C
+- [ ] Trace a C function end‑to‑end in `gdb` showing asm ↔ source
+
+## Stage 4: OS Internals Fundamentals
 ### Books
-- [ ] Operating Systems: Three Easy Pieces (OSTEP)
-- [ ] Modern Operating Systems (Tanenbaum)
-- [ ] Linux Kernel Development (Robert Love)
+- [ ] **Operating Systems: Three Easy Pieces** (OSTEP)
+- [ ] **Modern Operating Systems** (Tanenbaum)
+- [ ] **Linux Kernel Development** (Robert Love)
 
-### Concepts
+### Core Concepts
+- [ ] Processes, threads, scheduling algorithms
 - [ ] Virtual memory, paging, page tables
-- [ ] System calls and context switching
-- [ ] Kernel vs user space
-- [ ] Boot process, interrupts, file systems
+- [ ] System calls, context switching, interrupts
+- [ ] File systems, VFS layer
+- [ ] Concurrency: spinlocks, mutexes, RCU
 
-## Stage 4: Write a Tiny OS
-### Resources
-- [ ] https://github.com/cfenollosa/os-tutorial
+## Stage 5: Tiny OS Development
+### Tutorials
 - [ ] https://osdev.org/wiki/Bare_Bones
+- [ ] https://github.com/cfenollosa/os-tutorial
 
 ### Projects
 - [ ] Bootloader in x86 assembly (`boot.asm`)
-- [ ] Kernel in C that prints to the screen
+- [ ] Minimal C kernel that prints to screen
 - [ ] Set up GDT and IDT
-- [ ] Keyboard input + interrupts
-- [ ] Build and boot with QEMU
+- [ ] Implement keyboard interrupt handler
+- [ ] Add a simple round‑robin scheduler
+- [ ] Test/debug under QEMU with `-s -S` (KGDB)
 
-## Stage 5: Study Real Operating Systems
-### Explore
-- [ ] https://github.com/mit-pdos/xv6-public
-- [ ] https://github.com/torvalds/linux
+## Stage 6: Real OS Exploration
+### Codebases
+- [ ] MIT xv6 public repository
+- [ ] Linux kernel (`torvalds/linux`)
+- [ ] MINIX 3 source (microkernel perspective)
 
-### Files to focus on
-- [ ] `init/` — Kernel entry point
-- [ ] `fs/` — Filesystem code
-- [ ] `mm/` — Memory management
-- [ ] `kernel/` — Scheduler, syscalls
+### Focus Areas
+- [ ] `init/`, `kernel/` (entry, scheduling, syscalls)
+- [ ] `mm/` (memory management)
+- [ ] `fs/` (filesystem implementations)
+- [ ] `drivers/` (device driver examples)
 
-## Stage 6: Real Projects & Contributions
+## Stage 7: Kernel Modules & Device Drivers
 ### Projects
-- [ ] Write a Linux kernel module
-- [ ] Build your own file system
-- [ ] Port Linux to QEMU or Raspberry Pi
-- [ ] Contribute to kernelnewbies or open source drivers
-- [ ] Build a toy virtual CPU
+- [ ] Write a “Hello, world” Linux kernel module
+- [ ] Implement a char‑device driver (`misc`, `cdev`)
+- [ ] Build a simple FUSE filesystem in user space
+- [ ] Explore in‑kernel Rust modules (optional)
 
-## Tools to Learn
-- [ ] `gcc`, `ld`, `make`
-- [ ] `gdb`, `objdump`, `strace`
-- [ ] `hexdump`, `xxd`, `readelf`
-- [ ] `qemu`, `bochs` (virtual OS testing)
-- [ ] `git` + patch-based workflows
+## Stage 8: Debugging, Tracing & Testing
+### Tools & Techniques
+- [ ] `gdb`/`kgdb` for live kernel debugging
+- [ ] `perf`, `ftrace`, `SystemTap` for profiling/tracing
+- [ ] `valgrind`, `kmemleak` for memory checking
+- [ ] Kernel selftests and KUnit
 
-## Suggested Weekly Plan
-### Week 1–2
-- C syntax + pointer practice
-- Implement basic string/memory functions
+### Exercises
+- [ ] Profile your tiny OS scheduler under load
+- [ ] Write a `ftrace` script to trace a syscall path
+- [ ] Set up QEMU snapshots + automated boot tests
 
-### Week 3–4
-- Assembly basics + function call tracing
-- Use `objdump` to read compiled C functions
+## Stage 9: Security & Reverse Engineering
+### Topics
+- [ ] Stack canaries, NX bit, ASLR, SELinux
+- [ ] Exploit development basics (buffer overflows, ROP)
+- [ ] Reverse‑engineering with `objdump`, Ghidra
 
-### Week 5–6
-- Read OSTEP
-- Build your own shell + memory allocator
+### Projects
+- [ ] Harden a simple kernel module with stack protector
+- [ ] Craft a minimal ROP chain against a toy vulnerable driver
 
-### Week 7–9
-- Follow os-tutorial
-- Boot your kernel with QEMU
+## Stage 10: Virtualization & Containers
+### Concepts
+- [ ] Hypervisors: KVM/QEMU, Xen basics
+- [ ] Container runtimes: namespaces, cgroups
+- [ ] Paravirtualization vs full virtualization
 
-### Week 10+
-- Dive into xv6 + Linux kernel
-- Start real projects or contributions
+### Mini‑Projects
+- [ ] Write a user‑space hypervisor using the KVM API
+- [ ] Build a minimal OCI‑compliant container runtime
+
+## Stage 11: Embedded Systems & RTOS
+### Platforms
+- [ ] ARM Cortex‑M (STM32, nRF52)
+- [ ] RISC‑V dev boards
+
+### RTOS
+- [ ] FreeRTOS or Zephyr Hello‑World
+- [ ] Task scheduling, ISRs, low‑power modes
+
+### Projects
+- [ ] Blink LED under FreeRTOS with two competing tasks
+- [ ] Port your tiny OS to run on QEMU’s ARM machine
+
+## Stage 12: Advanced Specializations
+- [ ] High‑performance networking (DPDK, RDMA)
+- [ ] Persistent memory & filesystems (Intel PMEM)
+- [ ] Formal verification (seL4, TLA⁺)
+- [ ] Real‑time kernels (PREEMPT_RT)
+- [ ] Research papers: read SOSP/OSDI conference proceedings
+
+---
+
+## Tools to Master
+- Compilers/linkers: `gcc`/`clang`, `ld`, `llvm-binutils`
+- Debuggers: `gdb`, `kgdb`, `lldb`
+- Profilers/tracers: `perf`, `ftrace`, `bpftrace`
+- Binary tools: `objdump`, `readelf`, `hexdump`, `xxd`
+- Virtualization: `qemu`, `bochs`, KVM
+- Version control & CI: `git`, GitHub Actions, Buildroot, Yocto
+- Fuzzers: AFL, libFuzzer, syzbot (for kernel fuzzing)
+
+## Suggested Timeline
+- **Months 1–2:** Linux fluency, C basics, string/memory functions  
+- **Months 3–4:** Assembly deep‑dive, inline asm, objdump/gdb tracing  
+- **Months 5–6:** OS theory (OSTEP), build shell & allocator  
+- **Months 7–9:** Tiny OS dev, KGDB/QEMU debugging  
+- **Months 10–12:** xv6/Linux exploration, kernel modules  
+- **Year 2+:** Advanced topics: security, virtualization, RTOS, contributions  
+
+> **Pro Tip:** Regularly contribute small patches upstream—real feedback from kernel maintainers accelerates learning faster than any tutorial!  
